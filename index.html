@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kite Redirect</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #f7f9fb;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    code {
+      background: #eee;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Login Successful 🎉</h2>
+    <p>Your <b>request_token</b> is:</p>
+    <p><code id="token">Loading...</code></p>
+    <p>Copy and paste this token into your script.</p>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('request_token');
+    document.getElementById('token').textContent = token || 'Not found';
+  </script>
+</body>
+</html>
